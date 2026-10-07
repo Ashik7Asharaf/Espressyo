@@ -1,0 +1,20 @@
+{
+  "name": "tnation-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "T Nation — talent management website (artists, athletes, creators from South India).",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.0.15"
+  }
+}
