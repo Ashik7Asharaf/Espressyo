@@ -83,6 +83,8 @@ test('all public pages render with title, description and OG tags', async () => 
     assert.match(html, /<meta name="description" content="[^"]{40,}"/, p);
     assert.match(html, /property="og:image" content="https:\/\/tnation\.test\/img\/og\.png"/, p);
     assert.match(html, /data-ml="ഹോം"/, p);
+    assert.match(html, /data-ta="முகப்பு"/, p);
+    assert.match(html, /data-te="హోమ్"/, p);
     assert.match(html, /"@type":"Organization"/, p);
     assert.ok(res.headers.get('content-security-policy'));
   }
@@ -110,7 +112,7 @@ test('overseas page shows the required disclaimer, guide table and forms', async
 
 test('roster filters work server-side', async () => {
   const html = await (await get('/roster?category=athlete')).text();
-  assert.equal((html.match(/class="card reveal"/g) || []).length, 3);
+  assert.equal((html.match(/class="card reveal"/g) || []).length, 5);
   const kn = await (await get('/roster?language=Kannada')).text();
   assert.ok((kn.match(/class="card reveal"/g) || []).length >= 3);
   assert.ok(!kn.includes('data-category="athlete" data-city="Kozhikode"'));
@@ -279,4 +281,15 @@ test('output is HTML-escaped', async () => {
   const html = await (await get('/roster/xss')).text();
   assert.ok(!html.includes('<script>alert(1)</script>'));
   assert.ok(html.includes('&lt;script&gt;alert(1)&lt;/script&gt;'));
+});
+
+test('four cities and founding story appear on Home and About', async () => {
+  for (const p of ['/', '/about']) {
+    const html = await (await get(p)).text();
+    for (const c of ['Bengaluru', 'Chennai', 'Hyderabad', 'Kochi']) assert.match(html, new RegExp(`<h3>${c}</h3>`), `${p} ${c}`);
+    assert.match(html, /"foundingDate":"2026"/);
+  }
+  const about = await (await get('/about')).text();
+  assert.match(about, /founded in Bengaluru in 2026 by people who were artists and athletes themselves/);
+  assert.ok(!about.includes('Kerala office'));
 });

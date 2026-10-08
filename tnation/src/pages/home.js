@@ -3,10 +3,10 @@ const { html } = require('../html');
 const { layout } = require('../layout');
 const { photo, sectionHead } = require('../ui');
 const repo = require('../repo');
-const { showRow, talentCard } = require('./shared');
+const { showRow, talentCard, cities } = require('./shared');
 
 const LINES = [
-  { n: '01', title: 'Management', href: '/roster', text: 'Career strategy, scheduling, contracts and the team around the talent — built for artists, athletes and creators from Kerala and Karnataka.' },
+  { n: '01', title: 'Management', href: '/roster', text: 'Career strategy, scheduling, contracts and the team around the talent — built for artists, athletes and creators from across South India.' },
   { n: '02', title: 'Live & Shows', href: '/live', text: 'Booking, touring and show delivery across India and overseas, from club dates to stadium nights and diaspora tours.' },
   { n: '03', title: 'Brand Partnerships', href: '/brands', text: 'Endorsements, campaigns and content partnerships that fit the talent — and land with South Indian audiences at home and abroad.' },
   { n: '04', title: 'Rights & Royalties', href: '/rights', text: 'Registrations, collections and statement reviews, so music, image and content rights earn what they should.' },
@@ -28,9 +28,9 @@ module.exports = function home(req, res) {
 <section class="hero">
   <div class="hero__media" aria-hidden="true">${photo('Hero — full-bleed editorial portrait', { tone: 0, className: 'hero__ph' })}</div>
   <div class="wrap hero__content">
-    <p class="eyebrow reveal">Artists · Athletes · Creators — Bengaluru · Kerala · Karnataka</p>
+    <p class="eyebrow reveal">Artists · Athletes · Creators — Bengaluru · Chennai · Hyderabad · Kochi</p>
     <h1 class="hero__title reveal">Taking South India's talent <em>to the world</em></h1>
-    <p class="lede reveal">T Nation manages talent from South India across four business lines — management, live and shows, brand partnerships, and rights and royalties — at home and on overseas stages.</p>
+    <p class="lede reveal">Founded in Bengaluru by former artists and athletes, T Nation helps South India's talent clear the hurdles between them and their dreams — through management, live shows, brand partnerships, and rights and royalties, at home and on overseas stages.</p>
     <div class="hero__actions reveal">
       <a class="btn btn--gold btn--lg" href="/join">Join T Nation</a>
       <a class="btn btn--ghost btn--lg" href="/roster">Explore the roster</a>
@@ -58,6 +58,13 @@ module.exports = function home(req, res) {
         <span class="line__more" aria-hidden="true">→</span>
       </a>`)}
     </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    ${sectionHead('Where we work', 'Four cities. Four languages. One South India.', 'Headquartered in Bengaluru and working across Chennai, Hyderabad and Kochi — with talent who perform in Kannada, Tamil, Telugu, Malayalam and more.')}
+    ${cities()}
   </div>
 </section>
 

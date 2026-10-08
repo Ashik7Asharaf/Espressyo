@@ -24,7 +24,7 @@ module.exports = function contact(req, res) {
       <p><a class="contact-line" href="mailto:${config.contactEmail}">${config.contactEmail}</a></p>
       <p><a class="btn btn--whatsapp btn--lg" href="https://wa.me/${config.whatsappNumber}?text=${waText}" rel="noopener" target="_blank">Message us on WhatsApp</a></p>
       <p class="muted small">Contact details shown are placeholders until the launch addresses are configured.</p>
-      <p>Headquarters: Bengaluru, Karnataka. <a href="/about">Find us</a>.</p>
+      <p>Headquarters: Bengaluru, Karnataka. We also work across Chennai, Hyderabad and Kochi. <a href="/about">Find us</a>.</p>
     </div>
     ${form({
       id: 'contact', action: '/forms/contact', submit: 'Send message',

@@ -6,7 +6,7 @@ const repo = require('../repo');
 
 const PACKAGES = [
   { name: 'Ambassador', text: 'Long-term face of a brand: campaign shoots, social content, appearances and usage rights over an agreed term.', items: ['6–12 month term', 'Campaign + social + appearances', 'Exclusivity options'] },
-  { name: 'Content series', text: 'A run of native content made with the talent for their channels and yours — in Malayalam, Kannada, Tulu, English or more.', items: ['Multi-post / multi-video', 'Whitelisting & paid usage', 'Regional language versions'] },
+  { name: 'Content series', text: 'A run of native content made with the talent for their channels and yours — in Kannada, Tamil, Telugu, Malayalam, English or more.', items: ['Multi-post / multi-video', 'Whitelisting & paid usage', 'Regional language versions'] },
   { name: 'Live activation', text: 'Talent at your launch, store, campus, festival or corporate event — or a branded show built around them.', items: ['Appearances & performances', 'Meet-and-greets', 'India and overseas'] },
   { name: 'Sport partnership', text: 'Kit, equipment and performance brands working with athletes on and off the field, with clear image-rights terms.', items: ['Equipment & apparel', 'Image-rights licensing', 'Grassroots programmes'] },
 ];
@@ -19,7 +19,7 @@ module.exports = function brands(req, res) {
   <div class="wrap">
     <p class="eyebrow">Brand Partnerships</p>
     <h1 class="display display--xl">Partnerships with real cultural reach</h1>
-    <p class="lede">Connect with audiences across Kerala, Karnataka and the South Indian diaspora through artists, athletes and creators who speak their language — literally.</p>
+    <p class="lede">Connect with audiences across Karnataka, Tamil Nadu, Telangana, Andhra Pradesh, Kerala and the South Indian diaspora through artists, athletes and creators who speak their language — literally.</p>
     <div class="hero__actions"><a class="btn btn--gold" href="#enquiry">Start a brand enquiry</a></div>
   </div>
 </section>
@@ -56,7 +56,7 @@ module.exports = function brands(req, res) {
         field({ name: 'phone', label: 'Phone / WhatsApp', type: 'tel', autocomplete: 'tel' }),
         field({ name: 'package', label: 'Package', type: 'select', options: [['', 'Not sure yet'], ...PACKAGES.map((p) => p.name)] }),
         field({ name: 'talent', label: 'Talent of interest', type: 'select', value: String(req.query.talent || ''), options: [['', 'Open to suggestions'], ...talent.map((t) => [t.slug, `${t.name} — ${t.genre}${t.is_placeholder ? ' (placeholder)' : ''}`])] }),
-        field({ name: 'country', label: 'Markets', placeholder: 'e.g. Kerala, Karnataka, UAE' }),
+        field({ name: 'country', label: 'Markets', placeholder: 'e.g. Tamil Nadu, Kerala, UAE' }),
         field({ name: 'budget', label: 'Budget range', placeholder: 'e.g. ₹10–20 lakh' }),
         field({ name: 'event_date', label: 'Campaign start', type: 'date' }),
         field({ name: 'message', label: 'Brief', type: 'textarea', full: true, required: true }),

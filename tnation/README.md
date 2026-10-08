@@ -1,6 +1,6 @@
 # T Nation — website
 
-Multi-page website and admin dashboard for **T Nation**, a talent management company for artists, athletes and creators from South India (Bengaluru HQ, focus on Kerala and Karnataka).
+Multi-page website and admin dashboard for **T Nation**, a talent management company for artists, athletes and creators from across South India. Founded 2026; headquartered in Bengaluru and working across Chennai, Hyderabad and Kochi.
 
 > Tagline: *Taking South India's talent to the world.*
 
@@ -29,13 +29,13 @@ The SQLite file, uploads and the dev email outbox live in `data/` (git-ignored).
 | `/overseas` | End-to-end process, **Tour Net-Cash Calculator**, US$180k sample case, destination guide (US, UK, Canada, Australia, Germany/EU, UAE), pre-tour checklist, “Plan your overseas show” lead-time planner, mandatory disclaimer |
 | `/brands` | Packages, case-study placeholders, brand enquiry form |
 | `/rights` | Rights & royalties explainer, request-a-review form |
-| `/about` | Story, team placeholders, Bengaluru HQ map (OpenStreetMap), Kerala office placeholder |
+| `/about` | Founders' story, four-city “Where we work” section, team placeholders, Bengaluru HQ map (OpenStreetMap) |
 | `/join` | Talent application with file upload (reel, portfolio or stats) and consent checkbox |
 | `/contact` | Enquiry form, email and WhatsApp button |
 | `/privacy` | Privacy and cookie policy (draft for legal review) |
 | `/admin` | Login-protected dashboard: roster and show CRUD, enquiries, applications, calculator and plan leads, status dropdown (New / In review / Signed / Declined), CSV export |
 
-The main navigation has an **EN / മലയാളം / ಕನ್ನಡ** toggle. The choice is saved per browser. *Have a native speaker review the Malayalam and Kannada labels in `src/i18n.js` before launch.*
+The main navigation has a language switcher: **English, ಕನ್ನಡ, தமிழ், తెలుగు, മലയാളം**. The choice is saved per browser. *Have native speakers review the labels in `src/i18n.js` before launch.* The four cities (Bengaluru HQ, Chennai, Hyderabad, Kochi) are also defined there.
 
 ## Data
 

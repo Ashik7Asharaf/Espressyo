@@ -15,7 +15,7 @@ h1{font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:92px;lin
 .f{display:flex;justify-content:space-between;align-items:center;font-size:22px;color:#c9c1b3;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
 .dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff4b2b;margin-right:12px}</style></head>
 <body><div class="c"><div class="logo"><b>T</b>NATION</div><h1>Taking South India's talent <em>to the world</em></h1>
-<div class="f"><span><span class="dot"></span>Artists · Athletes · Creators</span><span>Bengaluru · Kerala · Karnataka</span></div></div></body></html>`;
+<div class="f"><span><span class="dot"></span>Artists · Athletes · Creators</span><span>Bengaluru · Chennai · Hyderabad · Kochi</span></div></div></body></html>`;
 
 const logo = `<!doctype html><html><head>${FONT}<style>${BASE}
 .c{width:512px;height:512px;display:grid;place-items:center;background:#0a0a0a}

@@ -52,7 +52,7 @@ function list(req, res) {
 
   res.send(String(layout({
     title: 'Roster — artists, athletes and creators',
-    description: 'Browse the T Nation roster of artists, athletes and creators from Kerala and Karnataka. Filter by type, city, language, sport or genre.',
+    description: 'Browse the T Nation roster of artists, athletes and creators from across South India — Bengaluru, Chennai, Hyderabad, Kochi and beyond. Filter by type, city, language, sport or genre.',
     path: '/roster', active: 'roster', body,
   })));
 }

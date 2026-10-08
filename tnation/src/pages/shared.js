@@ -1,6 +1,7 @@
 'use strict';
 const { html } = require('../html');
 const { fmtDate, dateParts, placeholderBadge, photo, talentInitials, CATEGORY_LABELS } = require('../ui');
+const { CITIES } = require('../i18n');
 
 const showRow = (s) => {
   const d = dateParts(s.starts_on);
@@ -28,4 +29,13 @@ const talentCard = (t, i = 0) => html`<article class="card reveal" data-category
   </a>
 </article>`;
 
-module.exports = { showRow, talentCard, fmtDate };
+// Bengaluru HQ plus the three other South Indian markets T Nation works in.
+const cities = () => html`<div class="cities">
+  ${CITIES.map((c) => html`<div class="city reveal${c.role === 'Headquarters' ? ' city--hq' : ''}">
+    <span class="city__role">${c.role === 'Headquarters' ? 'Headquarters' : 'We work here'}</span>
+    <h3>${c.city}</h3>
+    <p>${c.region} · ${c.language}</p>
+  </div>`)}
+</div>`;
+
+module.exports = { showRow, talentCard, cities, fmtDate };

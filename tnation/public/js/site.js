@@ -46,18 +46,19 @@
     window.addEventListener('resize', function () { if (window.innerWidth >= 1280) setMenu(false); });
   }
 
-  // ---- Navigation language toggle (English / Malayalam / Kannada) ----------
+  // ---- Navigation language (English, Kannada, Tamil, Telugu, Malayalam) -----
   function setLang(lang) {
-    if (['en', 'ml', 'kn'].indexOf(lang) < 0) lang = 'en';
+    if (['en', 'kn', 'ta', 'te', 'ml'].indexOf(lang) < 0) lang = 'en';
     doc.setAttribute('data-nav-lang', lang);
     $$('[data-i18n]').forEach(function (el) {
       el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
       el.setAttribute('lang', lang);
     });
-    $$('.lang__btn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+    var sel = $('[data-lang-select]'); if (sel) sel.value = lang;
     store.set('tn_nav_lang', lang);
   }
-  $$('.lang__btn').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+  var langSelect = $('[data-lang-select]');
+  langSelect && langSelect.addEventListener('change', function () { setLang(langSelect.value); });
   var savedLang = store.get('tn_nav_lang');
   if (savedLang && savedLang !== 'en') setLang(savedLang);
 

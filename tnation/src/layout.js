@@ -4,9 +4,9 @@ const config = require('./config');
 const { NAV, JOIN, LANGS } = require('./i18n');
 
 const SITE_NAME = 'T Nation';
-const DEFAULT_DESC = "T Nation manages artists, athletes and creators from South India — management, live shows, brand partnerships and rights & royalties. Headquartered in Bengaluru, taking South India's talent to the world.";
+const DEFAULT_DESC = "T Nation manages artists, athletes and creators from across South India — management, live shows, brand partnerships and rights & royalties. Headquartered in Bengaluru, working across Chennai, Hyderabad and Kochi.";
 
-const navLabel = (item) => html`<span data-i18n data-en="${item.en}" data-ml="${item.ml}" data-kn="${item.kn}">${item.en}</span>`;
+const navLabel = (item) => html`<span data-i18n data-en="${item.en}" data-kn="${item.kn}" data-ta="${item.ta}" data-te="${item.te}" data-ml="${item.ml}">${item.en}</span>`;
 
 const organizationLd = () => ({
   '@context': 'https://schema.org',
@@ -17,7 +17,9 @@ const organizationLd = () => ({
   description: DEFAULT_DESC,
   email: config.contactEmail,
   address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressRegion: 'Karnataka', addressCountry: 'IN' },
-  areaServed: ['Kerala', 'Karnataka', 'India', 'Worldwide'],
+  foundingDate: '2026',
+  foundingLocation: { '@type': 'Place', name: 'Bengaluru, Karnataka, India' },
+  areaServed: ['Karnataka', 'Tamil Nadu', 'Telangana', 'Andhra Pradesh', 'Kerala', 'India', 'Worldwide'],
 });
 
 function layout({ title, description = DEFAULT_DESC, path = '/', body, schema = [], ogImage = '/img/og.png', ogType = 'website', active, noindex = false, scripts = [], bodyClass = '' }) {
@@ -51,7 +53,7 @@ ${noindex ? raw('<meta name="robots" content="noindex, nofollow">') : ''}
 <link rel="apple-touch-icon" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Noto+Sans+Kannada:wght@500;700&family=Noto+Sans+Malayalam:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Noto+Sans+Kannada:wght@500;700&family=Noto+Sans+Malayalam:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&family=Noto+Sans+Telugu:wght@500;700&display=swap">
 <link rel="stylesheet" href="/css/site.css">
 ${jsonLd(organizationLd())}
 ${schema.map((s) => jsonLd(s))}
@@ -70,9 +72,11 @@ ${config.turnstile ? raw('<script src="https://challenges.cloudflare.com/turnsti
       </ul>
       <a class="btn btn--gold nav__cta" href="${JOIN.href}">${navLabel(JOIN)}</a>
     </nav>
-    <div class="lang" role="group" aria-label="Navigation language">
-      ${LANGS.map((l) => html`<button type="button" class="lang__btn" data-lang="${l.code}" lang="${l.code}" aria-pressed="${l.code === 'en' ? 'true' : 'false'}" title="${l.name}">${l.label}</button>`)}
-    </div>
+    <label class="lang"><span class="sr">Navigation language</span>
+      <select data-lang-select>
+        ${LANGS.map((l) => html`<option value="${l.code}" lang="${l.code}">${l.label}</option>`)}
+      </select>
+    </label>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu><span></span><span></span><span class="sr">Menu</span></button>
   </div>
 </header>
@@ -84,7 +88,7 @@ ${body}
     <div>
       <a class="logo logo--lg" href="/"><span class="logo__t">T</span><span class="logo__word">NATION</span></a>
       <p class="footer__tag">Taking South India's talent to the world.</p>
-      <p class="muted small">Headquartered in Bengaluru · Kerala office (planned)</p>
+      <p class="muted small">Headquartered in Bengaluru · Working across Chennai, Hyderabad and Kochi · Founded 2026</p>
     </div>
     <div>
       <h4>Company</h4>
